@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/npc.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Friend.gd" type="Script" id=2]
+[ext_resource path="res://resources/frienddreieckfehlform.png" type="Texture" id=3]
+[ext_resource path="res://resources/Herz1.png" type="Texture" id=4]
+[ext_resource path="res://resources/Herz2.png" type="Texture" id=5]
+[ext_resource path="res://resources/light.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+radius = 9.26492
+
+[node name="Friend" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+wanted_item = "star"
+
+[node name="Area2D" parent="." index="0"]
+script = null
+
+[node name="player_prot" parent="Area2D" index="0"]
+visible = false
+
+[node name="AnimatedSprite" parent="Area2D" index="2"]
+position = Vector2( 0.525345, -92.2262 )
+scale = Vector2( 0.111749, 0.108726 )
+frame = 6
+playing = true
+
+[node name="Sprite" type="Sprite" parent="Area2D" index="3"]
+scale = Vector2( 0.043, 0.043 )
+texture = ExtResource( 3 )
+
+[node name="AnimatedHeart" type="AnimatedSprite" parent="Area2D" index="4"]
+visible = false
+position = Vector2( 0, -50 )
+scale = Vector2( 0.0692316, 0.0692316 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="TweenHeart" type="Tween" parent="Area2D/AnimatedHeart" index="0"]
+
+[node name="Light2D" type="Light2D" parent="." index="1"]
+position = Vector2( 0, -350 )
+texture = ExtResource( 6 )
+texture_scale = 50.0
+mode = 2
+range_layer_min = -50
+range_layer_max = 50
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 0.196078 )
+
+[node name="Player2" type="StaticBody2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" index="0"]
+shape = SubResource( 2 )
+

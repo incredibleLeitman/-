@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/ItemList.gd" type="Script" id=1]
+[ext_resource path="res://resources/noise.png" type="Texture" id=2]
+[ext_resource path="res://scripts/DistortionShader.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+uniform float factor = 0.01; // values between 0.01 and 0.1 have sensible effects
+
+void fragment() {
+		vec2 add = texture(noise, SCREEN_UV).gb * factor;
+		vec2 new_uv = SCREEN_UV + add;
+		
+        vec3 c = textureLod(SCREEN_TEXTURE, new_uv, 0.0).rgb;
+		
+		//c += cross(c, cross(c, add));
+
+        COLOR.rgb = c;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+shader = SubResource( 1 )
+shader_param/factor = 0.0
+shader_param/noise = ExtResource( 2 )
+
+[node name="UI-Container" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+alignment = 2
+
+[node name="ItemList" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 500.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 100 )
+mouse_filter = 2
+alignment = 1
+script = ExtResource( 1 )
+
+[node name="DistortionShader" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+script = ExtResource( 3 )
+

@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Friend.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/WorldShapes/FloorShape.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/WorldShapes/CircleShape.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/WorldShapes/RectShape.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/WorldShapes/Cube2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Ferry.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/WorldShapes/CubeShape.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Star-Item.tscn" type="PackedScene" id=8]
+
+[node name="Home" type="Node2D"]
+
+[node name="Friend" parent="." instance=ExtResource( 1 )]
+position = Vector2( 340, 237.24 )
+z_index = 1050
+
+[node name="WorldShape" parent="." instance=ExtResource( 2 )]
+position = Vector2( 340, 264.303 )
+scale = Vector2( 8, 1 )
+
+[node name="WorldShape2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 175.211, 69.0462 )
+
+[node name="WorldShape" parent="WorldShape2" instance=ExtResource( 4 )]
+position = Vector2( 421.194, 134.712 )
+
+[node name="WorldShape2" parent="WorldShape2" instance=ExtResource( 5 )]
+position = Vector2( -181.167, 133.574 )
+
+[node name="WorldShape3" parent="WorldShape2" instance=ExtResource( 2 )]
+position = Vector2( -404.209, 85.9553 )
+
+[node name="WorldShape4" parent="WorldShape2" instance=ExtResource( 2 )]
+position = Vector2( -613.628, 16.149 )
+
+[node name="WorldShape5" parent="WorldShape2" instance=ExtResource( 2 )]
+position = Vector2( -830.803, -58.0895 )
+
+[node name="WorldShape6" parent="WorldShape2" instance=ExtResource( 4 )]
+position = Vector2( -1302.89, -159.514 )
+
+[node name="WorldShape7" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -2035.21, -179.046 )
+
+[node name="WorldShape8" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -2205.21, -179.046 )
+
+[node name="WorldShape9" parent="WorldShape2" instance=ExtResource( 5 )]
+position = Vector2( -2862.64, -165.186 )
+
+[node name="WorldShape16" parent="WorldShape2" instance=ExtResource( 5 )]
+position = Vector2( -3658.65, -169.699 )
+
+[node name="WorldShape10" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -2980.86, -251.059 )
+
+[node name="WorldShape11" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -3096.48, -327.958 )
+
+[node name="WorldShape13" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -3249, -382.108 )
+
+[node name="WorldShape14" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -3409.65, -350.52 )
+
+[node name="WorldShape15" parent="WorldShape2" instance=ExtResource( 3 )]
+position = Vector2( -3548.63, -273.808 )
+
+[node name="Ferry" parent="WorldShape2" instance=ExtResource( 6 )]
+position = Vector2( -949.588, -62.273 )
+
+[node name="WorldShape12" parent="WorldShape2" instance=ExtResource( 2 )]
+position = Vector2( -4098.75, -99.2419 )
+
+[node name="WorldShape" parent="WorldShape2/WorldShape12" instance=ExtResource( 3 )]
+position = Vector2( -187.555, 84.1968 )
+
+[node name="WorldShape2" parent="WorldShape2/WorldShape12" instance=ExtResource( 3 )]
+position = Vector2( -345.464, 29.4888 )
+
+[node name="WorldShape7" parent="WorldShape2/WorldShape12" instance=ExtResource( 2 )]
+position = Vector2( -726.812, 26.0072 )
+rotation = 0.299409
+scale = Vector2( 2, 1 )
+
+[node name="WorldShape8" parent="WorldShape2/WorldShape12" instance=ExtResource( 2 )]
+position = Vector2( -873.812, -83.993 )
+rotation = 0.299409
+scale = Vector2( 2, 1 )
+
+[node name="WorldShape9" parent="WorldShape2/WorldShape12" instance=ExtResource( 2 )]
+position = Vector2( -710.812, -172.993 )
+rotation = -0.342502
+scale = Vector2( 2, 1 )
+
+[node name="WorldShape3" parent="WorldShape2/WorldShape12" instance=ExtResource( 3 )]
+position = Vector2( -521.465, 86.1966 )
+rotation = 0.299409
+
+[node name="WorldShape6" parent="WorldShape2/WorldShape12" instance=ExtResource( 3 )]
+position = Vector2( -334.465, -288.804 )
+
+[node name="WorldShape4" parent="WorldShape2/WorldShape12" instance=ExtResource( 3 )]
+position = Vector2( -516.465, -202.804 )
+
+[node name="WorldShape5" parent="WorldShape2/WorldShape12" instance=ExtResource( 3 )]
+position = Vector2( -181.465, -204.804 )
+
+[node name="WorldShape3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 506.731, 203.563 )
+
+[node name="Star-Item" parent="." instance=ExtResource( 8 )]
+position = Vector2( -4097.25, -319.576 )
+
